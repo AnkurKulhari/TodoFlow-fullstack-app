@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 import api from "../../api/axios";
 import useAuth from "../../hooks/useAuth";
-import DeleteAccountModal from "../profile/DeleteAccountModal";
+import DeleteAccountModal from "../Profile/DeleteAccountModal";
 
 function Navbar() {
   const { logout } = useAuth();

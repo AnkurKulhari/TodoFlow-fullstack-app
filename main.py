@@ -14,7 +14,7 @@ app.include_router(todos.router)
 
 origins = [
     "http://localhost:5173",
-    "https://todo-flow-fullstack-app.vercel.app/",
+    "https://todo-flow-fullstack-app.vercel.app",
     "https://todo-flow-fullstack-app-git-main-ankurkulharis-projects.vercel.app",
     "https://todo-flow-fullstack-9wmpo7d1e-ankurkulharis-projects.vercel.app",
 ]

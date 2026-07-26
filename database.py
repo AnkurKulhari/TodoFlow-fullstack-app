@@ -1,13 +1,21 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
+import os
 
-DATABASE_URL = (
-    "postgresql://postgres:%40nkur111@localhost:5432/todo_db"
-)
+from dotenv import load_dotenv
+from sqlalchemy import create_engine
+from sqlalchemy.orm import declarative_base, sessionmaker
+
+load_dotenv()
+
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine = create_engine(DATABASE_URL)
 
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+SessionLocal = sessionmaker(
+    autocommit=False,
+    autoflush=False,
+    bind=engine,
+)
+
 
 def get_db():
     db = SessionLocal()
@@ -15,5 +23,6 @@ def get_db():
         yield db
     finally:
         db.close()
+
 
 Base = declarative_base()

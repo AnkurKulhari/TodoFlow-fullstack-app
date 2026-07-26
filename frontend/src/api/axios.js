@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://127.0.0.1:8000",
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
 api.interceptors.request.use((config) => {
@@ -22,7 +22,7 @@ api.interceptors.response.use(
       localStorage.removeItem("token");
 
       if (window.location.pathname !== "/login") {
-        window.location.replace = "/login?expired=true";
+        window.location.replace("/login?expired=true");
       }
     }
 
